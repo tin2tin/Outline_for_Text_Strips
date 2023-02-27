@@ -30,14 +30,14 @@ class SEQUENCER_OT_outline(bpy.types.Operator):
         context = bpy.context.scene.sequence_editor
         strips = bpy.context.selected_editable_sequences
         strips = sorted(strips, key=lambda strip: strip.frame_final_start)
+        org = scene.sequence_editor.active_strip
 
         for i in range(0, len(strips)):
             if strips[i].type == 'TEXT':
                 source_strip = strips[i]
                 
                 # Deselect all strips.
-                for seq in bpy.data.scenes[
-                        'Scene'].sequence_editor.sequences_all:
+                for seq in scene.sequence_editor.sequences_all:
                     seq.select = False
 
                 # Dublicate foreground text.
@@ -87,6 +87,13 @@ class SEQUENCER_OT_outline(bpy.types.Operator):
                 var.targets[0].id_type  = "SCENE"
                 var.targets[0].id = bpy.context.scene
                 var.targets[0].data_path = "sequence_editor.sequences_all["+chr(34)+source_strip.name+chr(34)+"].font_size"
+
+        # Deselect all strips.
+        for seq in scene.sequence_editor.sequences_all:
+            seq.select = False
+
+        scene.sequence_editor.active_strip = org 
+        scene.sequence_editor.active_strip.select = True 
                 
         return {'FINISHED'}
 
