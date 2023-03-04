@@ -2,7 +2,7 @@ bl_info = {
     "name": "Add Outline",
     "author": "tintwotin",
     "version": (1, 0),
-    "blender": (2, 83, 0),
+    "blender": (3, 0, 0),
     "location": "Text Strip > Style > Add Outline",
     "description": "Add outline to text strips",
     "warning": "",
