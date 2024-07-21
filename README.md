@@ -1,5 +1,6 @@
 # Outline for text strips in the Blender video Sequence Editor (VSE)
 Add outlines to selected text strips by using a black background text with glow and a white text on top. 
+[From Blender 4.2 this add-on is obsolete, since it can be done natively]
 
 ![outline](https://user-images.githubusercontent.com/1322593/221564202-10a1d0a9-bbc2-4820-892e-5f3c496bc3ea.gif)
 
